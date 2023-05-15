@@ -77,7 +77,7 @@ const reactRefreshOverlayEntry = require.resolve(
 
 // The istanbul plugin is not required by ssr. Added it here only to
 // comply with BRS maintenance convention that plugin added to webpack.config.js
-// needs to have an acccordingly config in webpack.config.ssr.js. It can be removed 
+// needs to have an acccordingly config in webpack.config.ssr.js. It can be removed
 // once such a convention is dropped.
 // const enableIstanbulPlugin = process.env.ENABLE_ISTANBUL_PLUGIN === 'true';
 
@@ -434,6 +434,7 @@ module.exports = function (webpackEnv) {
           reactRefreshOverlayEntry,
         ]),
       ],
+      ...require('../backpack-addons/resolveSymlinks'), // #backpack-addon resolveSymlinks
     },
     resolveLoader: {
       plugins: [
@@ -532,7 +533,7 @@ module.exports = function (webpackEnv) {
                     require.resolve('react-refresh/babel'),
                   // The istanbul plugin is not required by ssr. Added it here only to
                   // comply with BRS maintenance convention that plugin added to webpack.config.js
-                  // needs to have an acccordingly config in webpack.config.ssr.js. It can be removed 
+                  // needs to have an acccordingly config in webpack.config.ssr.js. It can be removed
                   // once such a convention is dropped.
                   // enableIstanbulPlugin && [
                   //   require.resolve('babel-plugin-istanbul'),
